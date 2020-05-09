@@ -2,6 +2,6 @@
 Great Regression
 
 
-# Down Detector Sraper
+# Down Detector Scraper
 * Outputs a CSV file with outage information for a given company
 * Script usage: `node index.js <company> <year> <month>`
