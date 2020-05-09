@@ -6,20 +6,21 @@ print_usage_and_exit() {
 
 [ $# -eq 1 ] || print_usage_and_exit
 
-node index.js ../data "$1" 2020 05 && sleep 1
-node index.js ../data "$1" 2020 04 && sleep 1
-node index.js ../data "$1" 2020 03 && sleep 1
-node index.js ../data "$1" 2020 02 && sleep 1
-node index.js ../data "$1" 2020 01 && sleep 1
-node index.js ../data "$1" 2019 12 && sleep 1
-node index.js ../data "$1" 2019 11 && sleep 1
-node index.js ../data "$1" 2019 10 && sleep 1
-node index.js ../data "$1" 2019 09 && sleep 1
-node index.js ../data "$1" 2019 08 && sleep 1
-node index.js ../data "$1" 2019 07 && sleep 1
-node index.js ../data "$1" 2019 06 && sleep 1
-node index.js ../data "$1" 2019 05 && sleep 1
-node index.js ../data "$1" 2019 04 && sleep 1
-node index.js ../data "$1" 2019 03 && sleep 1
-node index.js ../data "$1" 2019 02 && sleep 1
-node index.js ../data "$1" 2019 01 && sleep 1
+FILE="../data/$1-outages.csv"
+echo "processing 2020-05" && node index.js "$1" 2020 05 >> "$FILE" && sleep 2
+echo "processing 2020-04" && node index.js "$1" 2020 04 >> "$FILE" && sleep 2
+echo "processing 2020-03" && node index.js "$1" 2020 03 >> "$FILE" && sleep 2
+echo "processing 2020-02" && node index.js "$1" 2020 02 >> "$FILE" && sleep 2
+echo "processing 2020-01" && node index.js "$1" 2020 01 >> "$FILE" && sleep 2
+echo "processing 2019-12" && node index.js "$1" 2019 12 >> "$FILE" && sleep 2
+echo "processing 2019-11" && node index.js "$1" 2019 11 >> "$FILE" && sleep 2
+echo "processing 2019-10" && node index.js "$1" 2019 10 >> "$FILE" && sleep 2
+echo "processing 2019-09" && node index.js "$1" 2019 09 >> "$FILE" && sleep 2
+echo "processing 2019-08" && node index.js "$1" 2019 08 >> "$FILE" && sleep 2
+echo "processing 2019-07" && node index.js "$1" 2019 07 >> "$FILE" && sleep 2
+echo "processing 2019-06" && node index.js "$1" 2019 06 >> "$FILE" && sleep 2
+echo "processing 2019-05" && node index.js "$1" 2019 05 >> "$FILE" && sleep 2
+echo "processing 2019-04" && node index.js "$1" 2019 04 >> "$FILE" && sleep 2
+echo "processing 2019-03" && node index.js "$1" 2019 03 >> "$FILE" && sleep 2
+echo "processing 2019-02" && node index.js "$1" 2019 02 >> "$FILE" && sleep 2
+echo "processing 2019-01" && node index.js "$1" 2019 01 >> "$FILE" && sleep 2 

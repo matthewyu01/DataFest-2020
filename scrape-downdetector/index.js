@@ -1,19 +1,16 @@
 const fetch = require('node-fetch');
-const fs = require('fs');
-const path = require('path');
 
 const jsdom = require('jsdom');
 const {JSDOM} = jsdom;
 
-if (process.argv.length != 6) {
-  console.log(`Usage: ${
-      process.argv[1]} index.js <output-directory> <company> <year> <month>`);
+if (process.argv.length != 5) {
+  console.log(`Usage: ${process.argv[1]} index.js <company> <year> <month>`);
   process.exit(2);
 }
 
-const company = process.argv[3];
-const year = process.argv[4];
-const month = process.argv[5];
+const company = process.argv[2];
+const year = process.argv[3];
+const month = process.argv[4];
 
 fetch(`https://downdetector.com/status/${company}/archive/${year}/${month}`)
     .then(res => res.text())
@@ -43,8 +40,5 @@ fetch(`https://downdetector.com/status/${company}/archive/${year}/${month}`)
         string += `${company},${dates[i]},${times[i]}\n`;
       }
 
-      const output_path =
-          path.join(process.argv[2], `${company}-${month}-${year}.csv`);
-      fs.writeFileSync(output_path, string);
-      console.log(`Sucessfully wrote to \`${output_path}'`);
+      process.stdout.write(string);
     });
