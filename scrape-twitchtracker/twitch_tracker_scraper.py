@@ -17,7 +17,7 @@ def main():
         csv_write = csv.writer(csv_file, delimiter=',', quoting=csv.QUOTE_MINIMAL)
         csv_write.writerow(['Date' + ',' + 'Average Viewers'])
         for x in range(92, length, 4):
-            csv_write.writerow([     str(viewers[x].text).strip('\n'),   str(viewers[x+1].text).strip('\n')])
+            csv_write.writerow([str(viewers[x].text).strip('\n'), str(viewers[x+1].text).strip('\n')])
 
 if __name__ == "__main__":
     main()
