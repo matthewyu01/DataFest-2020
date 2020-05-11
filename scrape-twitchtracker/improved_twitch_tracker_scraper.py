@@ -1,0 +1,28 @@
+import pandas as pd 
+import requests 
+import csv
+
+from bs4 import BeautifulSoup 
+
+def main():
+    link = "https://twitchtracker.com/statistics"
+    data_list = pd.read_html(requests.get(link, headers={'User-agent': 'Mozilla/5.0'}).text)
+
+    df = data_list[0]
+
+    # truncate dataframe to begin on Jan 2019
+    recent_data = df.truncate(before = 76, after = 92)
+    # Modifies indices to start at 0
+    recent_data.index = list(range(17))
+    
+    recent_data.to_csv('twitch-data.csv',  index=False)
+    
+    #print(recent_data)
+
+
+if __name__ == "__main__":
+    main()
+  
+
+
+
