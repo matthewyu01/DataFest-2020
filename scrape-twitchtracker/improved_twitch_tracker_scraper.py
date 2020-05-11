@@ -15,9 +15,7 @@ def main():
     # Modifies indices to start at 0
     recent_data.index = list(range(17))
     
-    recent_data.to_csv('twitch-data.csv',  index=False)
-    
-    #print(recent_data)
+    recent_data.to_csv('twitch-adv-data.csv',  index=False)
 
 
 if __name__ == "__main__":
